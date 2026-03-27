@@ -1,0 +1,78 @@
+body {
+  background-color: rgb(226, 226, 234);
+}
+
+.introduction {
+  width: 200px;     
+  height: 250px;   
+  background-color: white; 
+
+  margin: 20px;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 15px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+.introduction img {
+  width: 170px;           
+  height: 170px;           
+
+  display: block;
+  margin: 0 auto 15px auto;
+}
+.introduction h4 {
+  margin: 0 0 0 0;
+}
+.role-text {
+  margin: 0 0 0 0;
+  color: blue;
+}
+.slogan-text {
+  margin: 5px 0 0 0;
+}
+
+.detail {
+  width: 700px;     
+  height: 400px;   
+  background-color: white; 
+
+  margin: 20px;
+  padding: 20px;
+  border-radius: 15px;
+
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+.detail h2 {
+  margin: 5px 0 0 0;
+}
+.club-text {
+  margin: 1px 0 0 0;
+  color: gray;
+}
+.intro h5, .info h5 {
+  margin: 10px 5px 0 0;
+}
+.description {
+  margin: 5px 0 0 0;
+  font-weight: 500;
+}
+a {
+  text-decoration: none;
+  color: blue;
+}
+.contact h5, .interesting h5, .text h5 {
+  margin: 15px 5px 0 0;
+}
+ul {
+  padding-left: 25px;
+  margin: 0;
+}
+li {
+  margin: 0 0 0 0;
+  font-size: small;
+}
