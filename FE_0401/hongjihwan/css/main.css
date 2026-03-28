@@ -1,0 +1,124 @@
+body {
+    background-color: #f4f5f7;
+    color: #333333;
+    font-family: 'Pretendard','Nanum Gothic', sans-serif;
+    padding: 40px 20px;
+}
+
+.container {
+    max-width: 800px;
+    display: flex;
+    /* 내부 내용이 부모영역을 초과할 시에 다음줄로 */
+    flex-wrap: wrap;
+    /* 세로 방향으로 배치 */
+    flex-direction: column;
+    gap: 30px;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04); /* 부드러운 그림자 */
+    padding: 24px;
+}
+
+.role {
+    color: #4361ee; /* 푸른색 계열 */
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.mini-card {
+    width: 300px; /* 카드 너비 고정 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mini-card:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08); /* 호버 시 그림자 강화 */
+    transform: translateY(-8px); /* 살짝 떠오르는 효과 */
+}
+
+.profile-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* 이미지가 찌그러지지 않게 채움 */
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+.mini-card .name {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.mini-card .desc {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.4;
+}
+
+.detail-card {
+    width: 100%;
+    padding: 32px 40px; /* 미니 카드보다 패딩을 조금 더 줌 */
+}
+
+.detail-header {
+    margin-bottom: 30px;
+}
+
+.name-large {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.track-name {
+    color: #888888;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.introduction, .call, .interest {
+    margin-bottom: 24px;
+}
+
+.section-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #222;
+}
+
+.section-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #444;
+}
+
+.section-list {
+    list-style-type: disc;
+    padding-left: 20px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #444;
+}
+
+.section-list a {
+    color: #4361ee;
+    text-decoration: none;
+}
+
+.section-list a:hover {
+    text-decoration: underline;
+}
+
+strong {
+    font-weight: 600;
+}
+
+mark {
+    background-color: #ffeb3b;
+    border-radius: 4px;
+}
