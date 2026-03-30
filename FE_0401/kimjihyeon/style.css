@@ -1,0 +1,118 @@
+body {
+  background-color: rgb(255, 200, 235);
+}
+
+.card-profile {
+  width: 200px;
+  background-color: white;
+  margin: 20px;
+  padding: 24px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.image img {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+}
+
+.profile-info h4 {
+  margin: 12px 0 4px;
+  font-size: 16px;
+}
+
+.profile-info .part {
+  margin: 0 0 6px;
+  font-size: 12px;
+}
+
+.profile-info p {
+  margin: 0;
+  font-size: 13px;
+}
+
+.card-detail {
+  width: 700px;
+  background-color: white;
+  margin: 0 20px 30px;
+  padding: 28px 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.introduction h5 {
+  margin: 0 0 3px;
+  font-size: 15px;
+}
+
+.introduction h6 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: normal;
+}
+
+.name {
+  margin: 0 0 2px;
+  font-size: 22px;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 14px;
+}
+
+.part {
+  color: hotpink;
+  font-size: 12px;
+  font-weight: bold
+}
+
+.track {
+  color: gray;
+  font-size: 13px;
+  font-weight: bold
+}
+
+.contact,
+.interesting,
+.text-quote {
+  padding: 4px 0;
+}
+
+.contact h5,
+.interesting h5,
+.text-quote h5 {
+  margin: 0 0 10px;
+  font-size: 15px;
+}
+
+ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+li {
+  margin: 0 0 6px;
+  font-size: 13px;
+}
+
+a {
+  color: hotpink;
+  text-decoration: none;
+}
+
+.quote {
+  margin: 0;
+  font-size: 13px;
+}
+
+hr {
+  margin: 16px 0;
+  border: none;
+  border-top: 1px solid #eee;
+}
