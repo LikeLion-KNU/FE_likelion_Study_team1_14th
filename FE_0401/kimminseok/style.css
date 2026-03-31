@@ -1,0 +1,101 @@
+body
+{
+    background-color: rgb(237, 238, 239);
+}
+href{
+    color:rgba(4, 108, 244, 0.953)
+}
+
+#main_summary
+{
+    margin-left:20px;
+    margin-top: 10px;
+    border-radius: 10px;
+    background-color:white;
+    width: 200px;
+    height: auto;
+    box-shadow: 0px 3px 10px rgba(0,0,0,0.1);
+    display:flex;
+    flex-direction: column;
+    padding:10px;
+}
+
+#main_profile
+{
+    background-color:white;
+    border-radius: 10px;
+    margin-left:20px;
+    margin-top: 10px;
+    width: 600px;
+    height: auto;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+    padding:20px;
+
+}
+
+.logo{
+    padding:20px;
+}
+
+.job{
+    font-size: 12px;
+    font-weight: bold;
+    color:rgb(63, 37, 231)
+}
+
+.introduce{
+    font-size: 12px;
+    color:black;
+}
+
+.summary_img img {
+    width: 100%;      
+    height: 100%;    
+    object-fit: cover; 
+    border-radius: 5px; 
+}
+
+.summary_img {
+    width: 180px;
+    height: 200px;
+    align-self: center;
+    overflow: hidden;
+}
+
+.name
+{
+    color: rgb(249, 141, 18);
+    font-size: 24px;
+    font-weight: bold;
+    align-items: flex-start;
+    gap:5px;
+}
+
+.summary_text
+{   
+    gap: 5px;
+    font-size: 13px;
+    align-self:flex-start;
+}
+.profile_name{
+    color: rgb(249, 141, 18);
+    font-size:40px;
+    font-weight: bold;
+}
+
+.profile_info{
+    padding-bottom: 20px;
+}
+
+.subjects{
+    font-size: 17px;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.contents{
+    padding-left: 20px;
+    padding-bottom: 10px;
+}
+
+
