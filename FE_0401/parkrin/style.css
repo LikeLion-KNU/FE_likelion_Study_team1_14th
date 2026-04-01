@@ -1,0 +1,44 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 2px 2px 8px #ccc;
+    width: 300px;
+    margin: 24px;
+}
+
+img {
+    display: flex;
+    justify-content: center;
+}
+
+.box {
+    flex: 1;
+}
+
+.name {
+    font-size: 200%;
+
+}
+
+.part {
+    color: blue;
+    font-size: 110%;
+}
+
+.personal {
+    font-size: 110%;
+}
+
+.information {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 2px 2px 8px #ccc;
+    
+    margin: 24px;
+}
