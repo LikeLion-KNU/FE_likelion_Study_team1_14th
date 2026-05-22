@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>아기 사자 대시보드</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="page">
+    <!-- 상단 컨트롤 영역 -->
+    <section class="control-panel">
+      <div class="control-row">
+        <button type="button" id="openFormBtn">아기 사자 추가</button>
+        <button type="button" id="deleteLastBtn">마지막 아기 사자 삭제</button>
+        <strong id="totalCount">총 9명</strong>
+      </div>
+
+      <div class="control-row">
+        <button type="button" id="loadOneBtn">랜덤 1명 추가</button>
+        <button type="button" id="loadFiveBtn">랜덤 5명 추가</button>
+        <button type="button" id="refreshBtn">전체 새로고침</button>
+
+        <strong id="requestStatus" class="status-text">준비 완료</strong>
+        <button type="button" id="retryBtn" class="retry-button" hidden>재시도</button>
+      </div>
+
+      <div class="filter-row">
+        <label>
+          파트
+          <select id="partFilter">
+            <option value="all">전체</option>
+            <option value="Frontend">Frontend</option>
+            <option value="Backend">Backend</option>
+            <option value="Design">Design</option>
+          </select>
+        </label>
+
+        <label>
+          정렬
+          <select id="sortOption">
+            <option value="latest">최신추가순</option>
+            <option value="name">이름순</option>
+          </select>
+        </label>
+
+        <label>
+          검색
+          <input id="searchInput" type="search" placeholder="이름으로 검색" />
+        </label>
+      </div>
+    </section>
+
+    <!-- 카드 목록 영역 -->
+    <section class="card-section">
+      <p id="emptyMessage" class="empty-message" hidden>
+        표시할 아기 사자가 없습니다. 필터/검색 조건을 확인해 주세요.
+      </p>
+
+      <div id="lionList" class="lion-grid">
+        <article
+          class="lion-card"
+          data-id="lion-1"
+          data-name="ieunji"
+          data-part="Design"
+          data-skills="Typography"
+          data-summary="의미 있는 시각 표현을 만들고 싶습니다."
+          data-detail="사용자에게 잘 전달되는 디자인을 고민합니다."
+          data-email="ieunji@example.com"
+          data-phone="010-1111-1111"
+          data-website="https://example.com/shin"
+          data-comment="디자인으로 이야기를 전달하고 싶어요."
+          data-image=""
+          data-is-mine="true"
+        >
+          <div class="card-image image-1">
+            <span class="skill-badge">Typography</span>
+          </div>
+
+          <div class="card-content">
+            <h2>ieunji</h2>
+            <strong class="part-text design">Design</strong>
+            <p>의미 있는 시각 표현을 만들고 싶습니다.</p>
+          </div>
+        </article>
+
+        <article
+          class="lion-card"
+          data-id="lion-2"
+          data-name="han"
+          data-part="Backend"
+          data-skills="GraphQL"
+          data-summary="API 설계의 일관성을 중요하게 생각합니다."
+          data-detail="서버와 데이터 흐름을 안정적으로 설계하는 데 관심이 있습니다."
+          data-email="han@example.com"
+          data-phone="010-2222-2222"
+          data-website="https://example.com/han"
+          data-comment="튼튼한 서버를 만들고 싶어요."
+          data-image=""
+          data-is-mine="false"
+        >
+          <div class="card-image image-2">
+            <span class="skill-badge">GraphQL</span>
+          </div>
+
+          <div class="card-content">
+            <h2>han</h2>
+            <strong class="part-text backend">Backend</strong>
+            <p>API 설계의 일관성을 중요하게 생각합니다.</p>
+          </div>
+        </article>
+
+        <article
+          class="lion-card"
+          data-id="lion-3"
+          data-name="윤아기사자"
+          data-part="yoon"
+          data-skills="CSS Grid"
+          data-summary="반응형 웹 구현을 연습 중입니다."
+          data-detail="화면 크기에 따라 자연스럽게 변하는 UI에 관심이 있습니다."
+          data-email="yoon@example.com"
+          data-phone="010-3333-3333"
+          data-website="https://example.com/yoon"
+          data-comment="프론트엔드를 더 잘하고 싶어요."
+          data-image=""
+          data-is-mine="false"
+        >
+          <div class="card-image image-3">
+            <span class="skill-badge">CSS Grid</span>
+          </div>
+
+          <div class="card-content">
+            <h2>yoon</h2>
+            <strong class="part-text frontend">Frontend</strong>
+            <p>반응형 웹 구현을 연습 중입니다.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 입력 폼 영역 -->
+    <section id="formPanel" class="form-panel">
+      <form id="lionForm">
+        <div class="form-grid two-column">
+          <label>
+            이름
+            <input id="nameInput" type="text" />
+          </label>
+
+          <label>
+            파트
+            <select id="partInput">
+              <option value="Frontend">Frontend</option>
+              <option value="Backend">Backend</option>
+              <option value="Design">Design</option>
+            </select>
+          </label>
+        </div>
+
+        <label>
+          관심 기술 <span class="hint">쉼표로 구분</span>
+          <input id="skillsInput" type="text" />
+        </label>
+
+        <label>
+          한 줄 소개 <span class="hint">요약 카드</span>
+          <input id="summaryInput" type="text" />
+        </label>
+
+        <label>
+          자기소개 <span class="hint">상세 카드</span>
+          <textarea id="detailInput"></textarea>
+        </label>
+
+        <div class="form-grid two-column">
+          <label>
+            Email
+            <input id="emailInput" type="email" />
+          </label>
+
+          <label>
+            Phone
+            <input id="phoneInput" type="text" />
+          </label>
+        </div>
+
+        <label>
+          Website
+          <input id="websiteInput" type="url" />
+        </label>
+
+        <label>
+          한 마디
+          <input id="commentInput" type="text" />
+        </label>
+
+        <div class="form-actions">
+          <button type="button" id="fillRandomBtn">랜덤 값 채우기</button>
+          <button type="submit">추가하기</button>
+          <button type="button" id="cancelBtn">취소</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

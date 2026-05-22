@@ -1,0 +1,318 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f4f5f8;
+  color: #333;
+  font-family: Arial, sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  border: 1px solid #dedede;
+  border-radius: 12px;
+  padding: 14px 20px;
+  background: #fff;
+  color: #111;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #f7f7f7;
+}
+
+button:disabled {
+  color: #cfcfcf;
+  cursor: not-allowed;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.page {
+  width: min(1400px, calc(100% - 120px));
+  margin: 0 auto;
+  padding: 42px 0 80px;
+}
+
+/* 상단 컨트롤 */
+
+.control-panel {
+  margin-bottom: 70px;
+}
+
+.control-row,
+.filter-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+#totalCount,
+.status-text {
+  margin-left: 10px;
+  color: #666;
+  font-size: 20px;
+}
+
+.retry-button {
+  border-color: #b6c4ff;
+}
+
+.filter-row {
+  gap: 28px;
+}
+
+.filter-row label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #555;
+  font-weight: 700;
+}
+
+select,
+input,
+textarea {
+  border: 1px solid #dedede;
+  border-radius: 12px;
+  background: #fff;
+  padding: 14px 18px;
+  outline: none;
+}
+
+select {
+  min-width: 190px;
+}
+
+.filter-row input {
+  width: 210px;
+}
+
+/* 카드 영역 */
+
+.card-section {
+  margin-bottom: 54px;
+}
+
+.lion-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.lion-card {
+  overflow: hidden;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+.lion-card.is-selected {
+  outline: 3px solid #5271ff;
+}
+
+.card-image {
+  position: relative;
+  height: 380px;
+  background-size: cover;
+  background-position: center;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-1 {
+  background:
+    linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)),
+    linear-gradient(135deg, #d8dce8, #9aa5b8);
+}
+
+.image-2 {
+  background:
+    radial-gradient(circle at 40% 50%, #fff 0 4%, transparent 5%),
+    radial-gradient(circle at 55% 55%, #ffb347 0 6%, transparent 7%),
+    linear-gradient(135deg, #273447, #111);
+}
+
+.image-3 {
+  background: linear-gradient(135deg, #141414, #690d21);
+}
+
+.skill-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  border-radius: 999px;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.94);
+  color: #333;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.card-content {
+  padding: 20px 22px 24px;
+}
+
+.card-content h2 {
+  margin: 0 0 8px;
+  color: #333;
+  font-size: 26px;
+}
+
+.part-text {
+  display: block;
+  margin-bottom: 10px;
+  color: #4f6cff;
+  font-size: 18px;
+}
+
+.part-text.frontend {
+  color: #4f6cff;
+}
+
+.part-text.backend {
+  color: #4f6cff;
+}
+
+.part-text.design {
+  color: #4f6cff;
+}
+
+.card-content p {
+  margin: 0;
+  color: #333;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.empty-message {
+  margin: 40px 0;
+  padding: 30px;
+  border-radius: 14px;
+  background: #fff;
+  color: #777;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* 폼 영역 */
+
+.form-panel {
+  border: 1px solid #e0e0e0;
+  border-radius: 16px;
+  background: #fff;
+  padding: 22px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
+}
+
+#lionForm {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+#lionForm label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #666;
+  font-weight: 700;
+}
+
+.form-grid.two-column {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+#lionForm input,
+#lionForm select,
+#lionForm textarea {
+  width: 100%;
+}
+
+#lionForm textarea {
+  min-height: 110px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.hint {
+  color: #666;
+  font-size: 14px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+/* 로딩 상태에서 전체 버튼 비활성화 느낌 */
+body.is-loading button {
+  opacity: 0.45;
+}
+
+body.is-loading input,
+body.is-loading select {
+  opacity: 0.8;
+}
+
+/* 반응형 */
+
+@media (max-width: 1100px) {
+  .page {
+    width: min(100% - 40px, 900px);
+  }
+
+  .lion-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card-image {
+    height: 300px;
+  }
+}
+
+@media (max-width: 700px) {
+  .page {
+    width: calc(100% - 28px);
+  }
+
+  .control-row,
+  .filter-row {
+    flex-wrap: wrap;
+  }
+
+  .lion-grid,
+  .form-grid.two-column {
+    grid-template-columns: 1fr;
+  }
+
+  .card-image {
+    height: 260px;
+  }
+
+  .form-actions {
+    justify-content: stretch;
+    flex-direction: column;
+  }
+}
