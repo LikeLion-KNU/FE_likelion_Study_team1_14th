@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>아기 사자 멤버 대시보드</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="dashboard">
+
+    <div class="control-bar">
+      <button id="btn-toggle-form" class="btn btn-outline-blue">아기 사자 추가</button>
+      <button id="btn-delete-last" class="btn btn-outline-gray">마지막 아기 사자 삭제</button>
+      <span class="total-count">총 <span id="total-num">0</span>명</span>
+    </div>
+
+    <div id="form-area" class="form-area hidden">
+      <form id="add-form" novalidate>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="f-name">이름</label>
+            <input type="text" id="f-name" placeholder="예: 홍아기사자" />
+            <span class="field-error hidden" id="err-name">이름을 입력해 주세요.</span>
+          </div>
+          <div class="form-group">
+            <label for="f-part">파트</label>
+            <select id="f-part">
+              <option value="Frontend">Frontend</option>
+              <option value="Backend">Backend</option>
+              <option value="Design">Design</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="f-skills">관심 기술 (쉼표로 구분)</label>
+          <input type="text" id="f-skills" placeholder="예: JavaScript, React, HTML/CSS" />
+          <span class="field-error hidden" id="err-skills">관심 기술을 입력해 주세요.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="f-intro">한 줄 소개 (요약 카드)</label>
+          <input type="text" id="f-intro" placeholder="예: 3주차 DOM 조작 연습 중!" />
+          <span class="field-error hidden" id="err-intro">한 줄 소개를 입력해 주세요.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="f-bio">자기소개 (상세 카드)</label>
+          <textarea id="f-bio" rows="4" placeholder="예: HTML/CSS로 구조를 만들고, JS로 데이터를 바꾸면 화면이 바뀌는 경험을 하고 있습니다."></textarea>
+          <span class="field-error hidden" id="err-bio">자기소개를 입력해 주세요.</span>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="f-email">Email</label>
+            <input type="email" id="f-email" placeholder="예: lion@example.com" />
+            <span class="field-error hidden" id="err-email">올바른 이메일을 입력해 주세요.</span>
+          </div>
+          <div class="form-group">
+            <label for="f-phone">Phone</label>
+            <input type="tel" id="f-phone" placeholder="예: 010-1234-5678" />
+            <span class="field-error hidden" id="err-phone">전화번호를 입력해 주세요.</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="f-website">Website</label>
+          <input type="url" id="f-website" placeholder="예: https://example.com" />
+          <span class="field-error hidden" id="err-website">올바른 URL을 입력해 주세요. (https://로 시작)</span>
+        </div>
+
+        <div class="form-group">
+          <label for="f-quote">한 마디</label>
+          <input type="text" id="f-quote" placeholder="예: 데이터 바꾸면 화면도 바뀐다!" />
+          <span class="field-error hidden" id="err-quote">한 마디를 입력해 주세요.</span>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-outline-dark">추가하기</button>
+          <button type="button" id="btn-cancel" class="btn btn-outline-gray">취소</button>
+        </div>
+
+      </form>
+    </div>
+
+    <div class="card-grid-wrapper">
+      <div class="card-grid" id="card-grid"></div>
+    </div>
+
+    <div class="detail-section-wrapper">
+      <div class="detail-list" id="detail-list"></div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
