@@ -201,7 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             await actionFunction();
             setAsyncStatus('success', '완료!');
-            setTimeout(() => setAsyncStatus('', '준비 완료'), 3000); // 3초 뒤 원래 텍스트로 복귀
+            setTimeout(() => setAsyncStatus('', '준비 완료'), 5000); // 5초 뒤 원래 텍스트로 복귀
             render(); // 데이터 변경 후 화면 다시 그리기
         } catch (error) {
             setAsyncStatus('error', `불러오기 실패: ${error.message}`);

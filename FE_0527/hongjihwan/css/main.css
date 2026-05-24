@@ -231,7 +231,6 @@ main {
     gap: 30px; /* 요약 영역과 상세 영역 사이의 간격을 넉넉하게 띄움 */
 }
 
-/* --- 4주차 추가 스타일 --- */
 .async-controls {
     margin-top: -15px;
     padding-bottom: 20px;
