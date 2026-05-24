@@ -1,0 +1,280 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f0f2f5;
+  font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+  color: #222;
+  padding: 32px 16px;
+}
+
+.dashboard {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ─── 컨트롤 패널 ─── */
+.control-panel {
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.control-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ─── 버튼 ─── */
+.btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  background: #fff;
+  color: #222;
+  font-family: inherit;
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn-outline-blue { border-color: #4f6ef7; color: #4f6ef7; }
+.btn-outline-blue.active { background: #4f6ef7; color: #fff; }
+.btn-outline-gray { border-color: #d1d5db; color: #555; }
+.btn-outline-dark { border-color: #222; color: #222; }
+.btn-outline-red  { border-color: #e74c3c; color: #e74c3c; }
+
+/* ─── 총 인원 ─── */
+.total-count { font-size: 0.9rem; color: #888; }
+#total-num   { font-weight: 700; color: #f5a623; }
+
+/* ─── 상태 문구 ─── */
+.fetch-status         { font-size: 0.85rem; font-weight: 600; color: #555; }
+.fetch-status.loading { color: #4f6ef7; }
+.fetch-status.success { color: #27ae60; }
+.fetch-status.fail    { color: #e74c3c; }
+
+/* ─── 보기 옵션 ─── */
+.view-options { border-top: 1px solid #f0f0f0; padding-top: 12px; }
+
+.option-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.option-label select,
+.option-label input {
+  padding: 6px 10px;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  color: #222;
+  background: #fff;
+  font-family: inherit;
+}
+
+.option-label select:focus,
+.option-label input:focus {
+  outline: none;
+  border-color: #4f6ef7;
+}
+
+.search-label input { width: 160px; }
+
+/* ─── hidden ─── */
+.hidden { display: none !important; }
+
+/* ─── 추가 폼 ─── */
+.form-area {
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px 28px 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 560px) {
+  .form-row { grid-template-columns: 1fr; }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.form-group label { font-size: 0.82rem; font-weight: 600; color: #333; }
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 10px 14px;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: #222;
+  background: #fff;
+  font-family: inherit;
+  width: 100%;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #4f6ef7;
+}
+
+.form-group textarea { resize: vertical; }
+
+.form-group input.error,
+.form-group textarea.error { border-color: #e74c3c; }
+
+.field-error { font-size: 0.75rem; color: #e74c3c; }
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+/* ─── 요약 카드 그리드 ─── */
+.card-grid-wrapper {
+  background: #fff;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 900px) { .card-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .card-grid { grid-template-columns: 1fr; } }
+
+/* ─── 요약 카드 ─── */
+.summary-card {
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  border: 1.5px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+}
+
+.summary-card.mine {
+  border: 2.5px solid #4f6ef7;
+  box-shadow: 0 4px 20px rgba(79,110,247,0.18);
+}
+
+.card-image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.card-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255,255,255,0.92);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #333;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+}
+
+.card-body {
+  padding: 14px 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.card-body .name  { font-size: 1rem; font-weight: 700; color: #111; }
+.card-body .part  { font-size: 0.82rem; font-weight: 700; }
+.card-body .intro { font-size: 0.8rem; color: #555; line-height: 1.5; }
+
+/* ─── 파트 색상 ─── */
+.frontend { color: #f5a623; }
+.backend  { color: #4f6ef7; }
+.design   { color: #27ae60; }
+
+/* ─── 빈 상태 ─── */
+.empty-state {
+  text-align: center;
+  padding: 40px 16px;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+/* ─── 상세 카드 ─── */
+.detail-section-wrapper {
+  background: #eef0f5;
+  border-radius: 20px;
+  padding: 28px 24px;
+}
+
+.detail-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.detail-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 28px 32px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+}
+
+.detail-card .d-name  { font-size: 1.1rem; font-weight: 700; color: #111; margin-bottom: 2px; }
+.detail-card .d-part  { font-size: 0.82rem; font-weight: 700; margin-bottom: 2px; }
+.detail-card .d-club  { font-size: 0.78rem; color: #888; margin-bottom: 18px; letter-spacing: 0.04em; }
+.detail-card h4       { font-size: 0.85rem; font-weight: 700; color: #111; margin-bottom: 8px; }
+.detail-card p        { font-size: 0.83rem; color: #444; line-height: 1.8; margin-bottom: 18px; }
+.detail-card ul       { list-style: disc; padding-left: 20px; margin-bottom: 18px; }
+.detail-card ul li    { font-size: 0.83rem; color: #444; margin-bottom: 4px; }
+.detail-card ul li a  { color: #4f6ef7; text-decoration: none; }
+.detail-card .quote   { font-size: 0.83rem; color: #444; margin-bottom: 0; }
