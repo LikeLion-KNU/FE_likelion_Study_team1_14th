@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>아기사자 대시보드</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🦁 아기사자 명단 대시보드</h1>
+
+    <div class="form-area">
+      <input type="text" id="nameInput" placeholder="이름을 입력하세요" />
+      <input type="text" id="roleInput" placeholder="역할을 입력하세요" />
+      <button id="addBtn">추가</button>
+    </div>
+
+    <button id="loadBtn">🌐 API에서 명단 불러오기</button>
+    <p id="status"></p>
+
+    <div class="card-grid" id="cardGrid"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
