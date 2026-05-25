@@ -1,66 +1,118 @@
 <html lang="ko">
 
 <head>
-    <meta charset="UTF-8"> 
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
     <title>멋쟁이 사자들</title>
 </head>
 
 <body>
-    <div id="main">
-        <span class="logo"><img src="https://likelion.net/img/likelion_kor_logo_renew.svg"></span>
-        <div id="main_summary">
-            <div class="summary_img">
-                <img src="image/image3.jpg" alt="사진"><br/>
-            </div>
-            <div class="summary_text">
-                <div class="name">
-                    김민석
-                </div>
-                <span class="job">Frontend</span><br/>
-                <span class="introduce">14기 프론트엔드 아기사자입니다!</span><br/>
-            </div>
+
+    <div class="control-panel">
+        <button id="btn-add">아기 사자 추가</button>
+        <button id="btn-delete">마지막 아기 사자 삭제</button>
+        <span id="total-count">총 0명</span>
+    </div>
+    <div class="api-control-section">
+        <button type="button" id="btn-random-1">랜덤 1명 추가</button>
+        <button type="button" id="btn-random-5">랜덤 5명 추가</button>
+        <button type="button" id="btn-refresh-all">전체 새로고침</button>
+        <span id="status-message" class="status-ready">준비 완료</span>
+    </div>
+
+    <div class="filter-section">
+        <div class="filter-group">
+            <label for="filter-job">파트</label>
+            <select id="filter-job">
+                <option value="전체">전체</option>
+                <option value="Frontend">Frontend</option>
+                <option value="Backend">Backend</option>
+                <option value="Design">Design</option>
+            </select>
         </div>
-        <div id="main_profile">
-            <div class="profile_name">
-                김민석
-            </div>
-            <div class="profile_info">
-                <span class="job">Frontend</span><br/>
-                Like Lion
-            </div>
-            <div class="subjects">
-                자기소개
-            </div>
-            <div class="contents">
-                안녕하십니까 경북대 14기 아기사자 프론트엔드 담당 김민석 입니다! 
-            </div>
-            <div class="subjects">
-                연락처
-            </div>
-            <div class="contents">
-                1)전화번호: 010-7557-6229<br/>
-                2)이메일: 6229kms@naver.com<br/>
-                3)깃허브 ID: <a href="https://github.com/Kms6229/?locale=ko-kr">Kms6229</a>
-            </div>
-            <div class="subjects">
-                관심 기술
-            </div>
-            <div class="contents">
-                1) html<br/>
-                2) css<br/>
-                3) java script
-            </div>
-            <div class="subjects">
-                각오 한마디
-            </div>
-            <div class="contents">
-                이번 14기 멋쟁이 사자처럼을 기회삼아 한단계 발전한 프로그래머가 되겠습니다
-            </div>
+
+        <div class="filter-group">
+            <label for="sort-type">정렬</label>
+            <select id="sort-type">
+                <option value="최신추가순">최신추가순</option>
+                <option value="이름순">이름순</option>
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <label for="search-name">검색</label>
+            <input type="text" id="search-name" placeholder="이름으로 검색" />
         </div>
     </div>
-    
 
+    <div id="content-form">
+        <form id="card-form">
+            <div class="form-row">
+                <div class="form-group flex-1">
+                    <label for="card-name">이름</label>
+                    <input type="text" id="card-name" name="name" placeholder="예: 홍길동" required />
+                </div>
+                <div class="form-group flex-1">
+                    <label for="job-select">파트</label>
+                    <select id="job-select" name="job" required>
+                        <option value="Frontend">Frontend</option>
+                        <option value="Backend">Backend</option>
+                        <option value="Design">Design</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="input-skills">관심 기술 (쉼표로 구분)</label>
+                <input type="text" id="input-skills" name="skills" placeholder="예: JavaScript, React, HTML/CSS"
+                    required />
+            </div>
+
+            <div class="form-group">
+                <label for="input-summary">한 줄 소개 (요약 카드)</label>
+                <input type="text" id="input-summary" name="summary" placeholder="예: 3주차 DOM 조작 연습 중!" required />
+            </div>
+
+            <div class="form-group">
+                <label for="input-intro">자기소개 (상세 카드)</label>
+                <textarea id="input-intro" name="intro" rows="4" placeholder="예: HTML/CSS로 구조를 만들고..."
+                    required></textarea>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group flex-1">
+                    <label for="input-email">Email</label>
+                    <input type="email" id="input-email" name="email" placeholder="예: lion@example.com" required />
+                </div>
+                <div class="form-group flex-1">
+                    <label for="input-phonenum">Phone</label>
+                    <input type="tel" id="input-phonenum" name="phone" placeholder="예: 010-1234-5678" required />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="input-website">Website</label>
+                <input type="url" id="input-website" name="web" placeholder="예: https://example.com" required />
+            </div>
+
+            <div class="form-group">
+                <label for="input-talk">한 마디</label>
+                <input type="text" id="input-talk" name="talk" placeholder="예: 데이터 바꾸면 화면도 바뀐다!" required />
+            </div>
+
+            <div class="form-buttons">
+                <button type="button" id="btn-auto-fill">랜덤 값 채우기</button>
+                <button type="submit" id="btn-sumit">추가하기</button>
+                <button type="button" id="btn-back">취소</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="card-container"> </div>
+
+    <div id="summary-container"></div>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
