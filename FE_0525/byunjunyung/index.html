@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>4주차 과제</title>
+
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
+  />
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- 버튼 영역 -->
+    <div class="controls">
+
+      <button id="btn-toggle-form" class="btn">
+        아기 사자 추가
+      </button>
+
+      <button id="btn-delete-last" class="btn">
+        마지막 삭제
+      </button>
+
+      <button id="btn-add-1-random" class="btn">
+        랜덤 1명
+      </button>
+
+      <button id="btn-add-5-random" class="btn">
+        랜덤 5명
+      </button>
+
+      <button id="btn-refresh-all" class="btn">
+        전체 새로고침
+      </button>
+
+      <span id="total-count" class="count-text">
+        총 0명
+      </span>
+
+    </div>
+
+    <!-- 상태 -->
+    <div class="async-controls">
+
+      <span id="async-status" class="status-text">
+        준비 완료
+      </span>
+
+      <button id="btn-retry" class="btn hidden">
+        재시도
+      </button>
+
+    </div>
+
+    <!-- 필터 -->
+    <div class="view-options">
+
+      <div class="option-group">
+        <label>파트</label>
+
+        <select id="filter-part">
+          <option value="전체">전체</option>
+          <option value="Frontend">Frontend</option>
+          <option value="Backend">Backend</option>
+          <option value="Design">Design</option>
+        </select>
+      </div>
+
+      <div class="option-group">
+        <label>정렬</label>
+
+        <select id="sort-order">
+          <option value="latest">최신추가순</option>
+          <option value="name">이름순</option>
+        </select>
+      </div>
+
+      <div class="option-group">
+        <label>검색</label>
+
+        <input
+          type="text"
+          id="search-name"
+          placeholder="이름 검색"
+        />
+      </div>
+
+    </div>
+
+    <!-- 폼 -->
+    <form id="add-form" class="form-container hidden">
+
+      <div class="form-grid">
+
+        <div class="form-group">
+          <label>이름</label>
+
+          <input type="text" id="name" required>
+        </div>
+
+        <div class="form-group">
+          <label>파트</label>
+
+          <select id="part">
+            <option value="Frontend">Frontend</option>
+            <option value="Backend">Backend</option>
+            <option value="Design">Design</option>
+          </select>
+        </div>
+
+        <div class="form-group full-width">
+          <label>관심 기술</label>
+
+          <input type="text" id="skills">
+        </div>
+
+        <div class="form-group full-width">
+          <label>한 줄 소개</label>
+
+          <input type="text" id="summary">
+        </div>
+
+        <div class="form-group full-width">
+          <label>자기소개</label>
+
+          <textarea id="desc"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Email</label>
+
+          <input type="email" id="email">
+        </div>
+
+        <div class="form-group">
+          <label>Phone</label>
+
+          <input type="text" id="phone">
+        </div>
+
+        <div class="form-group full-width">
+          <label>Website</label>
+
+          <input type="url" id="website">
+        </div>
+
+        <div class="form-group full-width">
+          <label>한 마디</label>
+
+          <input type="text" id="quote">
+        </div>
+
+      </div>
+
+      <div class="form-actions">
+
+        <button type="button" id="btn-random-fill" class="btn">
+          랜덤 값 채우기
+        </button>
+
+        <button type="submit" class="btn">
+          추가하기
+        </button>
+
+        <button type="button" id="btn-cancel" class="btn">
+          취소
+        </button>
+
+      </div>
+
+    </form>
+
+    <main>
+
+      <div id="empty-state" class="hidden">
+        표시할 아기 사자가 없습니다.
+      </div>
+
+      <!-- 요약 카드 -->
+      <section>
+        <div id="summary-container" class="grid-container"></div>
+      </section>
+
+      <!-- 상세 카드 -->
+      <section>
+        <div id="detail-container" class="list-container"></div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
