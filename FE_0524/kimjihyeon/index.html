@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아기사자 명단</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <main class="dashboard-container">
+
+        <section class="action-bar">
+            <button type="button" id="add-btn" class="action-btn">아기 사자 추가</button>
+            <button type="button" id="delete-btn" class="action-btn">마지막 아기 사자 삭제</button>
+            <span id="total-count" class="action-count">총 0명</span>
+        </section>
+
+        <section class="action-bar async-bar">
+            <button class="action-btn fetch-btn" data-count="1">랜덤 1명 추가</button>
+            <button class="action-btn fetch-btn" data-count="5">랜덤 5명 추가</button>
+            <button id="refresh-all-btn" class="action-btn">전체 새로고침</button>
+
+            <span id="async-status" class="status-text">준비 완료</span>
+
+            <button id="retry-btn" class="action-btn hidden">재시도</button>
+        </section>
+
+        <section class="action-bar filter-bar">
+            <div class="filter-group">
+                <label for="filter-part">파트</label>
+                <select id="filter-part" class="filter-select">
+                    <option value="all">전체</option>
+                    <option value="Frontend">Frontend</option>
+                    <option value="Backend">Backend</option>
+                    <option value="Design">Design</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="sort-type">정렬</label>
+                <select id="sort-type" class="filter-select">
+                    <option value="latest">최신추가순</option>
+                    <option value="name">이름순 </option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="search-input">검색</label>
+                <input type="text" id="search-input" class="filter-select" placeholder="이름으로 검색">
+            </div>
+        </section>
+
+        <div id="form-container" class="form-container hidden">
+            <div class="form-card">
+                <form id="lion-form">
+                    <div class="form-group">
+                        <label for="input-name">이름</label>
+                        <input type="text" id="input-name" placeholder="예: 홍아기사자" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="select-part">파트</label>
+                        <select id="select-part" required>
+                            <option value="Frontend">Frontend</option>
+                            <option value="Backend">Backend</option>
+                            <option value="Design">Design</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="input-skills">관심 기술 (쉼표로 구분)</label>
+                        <input type="text" id="input-skills" placeholder="예: JavaScript, React, HTML/CSS" required>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="input-desc">한 줄 소개 (요약 카드)</label>
+                        <input type="text" id="input-desc" placeholder="예: 3주차 DOM 조작 연습 중!" required>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="input-intro">자기소개 (상세 카드)</label>
+                        <textarea id="input-intro" placeholder="예: HTML/CSS로 구조를 만들고, JS로 데이터를 바꾸면 화면이 바뀌는 경험을 하고 있습니다."
+                            required></textarea>
+                        <span class="error-msg hidden">자기소개를 입력해주세요.</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input-email">Email</label>
+                        <input type="email" id="input-email" placeholder="예: lion@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input-phone">Phone</label>
+                        <input type="tel" id="input-phone" placeholder="예: 010-1234-5678" required>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="input-website">Website</label>
+                        <input type="url" id="input-website" placeholder="예: https://example.com" required>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="input-quote">한 마디</label>
+                        <input type="text" id="input-quote" placeholder="예: 데이터 바꾸면 화면도 바뀐다!" required>
+                    </div>
+
+                    <div class="form-buttons">
+                        <button type="button" id="random-fill-btn" class="action-btn">랜덤 값 채우기</button>
+                        <button type="submit" id="submit-btn" class="submit-btn">추가하기</button>
+                        <button type="button" id="cancel-btn" class="cancel-btn">취소</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <section class="summary-section">
+            <h2 class="summary-title hidden">아기 사자 요약 카드 목록</h2>
+            <div class="summary-grid">
+            </div>
+        </section>
+
+        <section class="detail-section">
+            <h2 class="summary-title hidden">상세 자기소개 목록</h2>
+            <div class="detail-list">
+            </div>
+        </section>
+    </main>
+</body>

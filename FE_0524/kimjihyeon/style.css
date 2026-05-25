@@ -1,0 +1,267 @@
+/* ===========================
+   1. 전역 & 레이아웃
+=========================== */
+body {
+    background-color: #f5f6f8;
+    margin: 0;
+}
+
+.hidden { display: none !important; }
+
+/* ===========================
+   2. 버튼 스타일
+=========================== */
+.action-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 20px 24px 0;
+}
+
+.action-btn,
+.submit-btn,
+.cancel-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+/* 총 N명 */
+.action-count {
+    font-size: 13px;
+    font-weight: bold;
+    color: #555;
+    margin-left: 4px;
+}
+
+/* ===========================
+   3. 폼 카드 컨테이너
+=========================== */
+.form-card {
+    background-color: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin: 16px 24px;
+}
+
+.form-group.full-width {
+    grid-column: span 2;
+}
+
+/* 2열 그리드 */
+#lion-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+/* ===========================
+   4. 폼 요소 (라벨 / 인풋 / 셀렉트 / 텍스트에리어)
+=========================== */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* 인풋 공통 */
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 9px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #111;
+    background-color: #fff;
+    outline: none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #9ca3af;
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* ===========================
+   5. 폼 버튼 영역
+=========================== */
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    grid-column: span 2;
+}
+
+/* ===========================
+   6. 요약 카드 컴포넌트
+=========================== */
+.summary-card {
+    background-color: white;
+
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #eee;
+}
+.summary-card.card-mine {
+    border: 2px solid #3b82f6;
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.2);
+}
+
+/* 이미지 영역 - badge를 relative 기준으로 */
+.profile-image-wrapper { position: relative; }
+.profile-image-wrapper img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+
+    background-color: #fafaf8;
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.card-info { padding: 12px 16px; }
+
+/* ===========================
+   7. 상세 자기소개
+=========================== */
+.detail-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px;
+}
+.detail-card {
+    background-color: white;
+
+    padding: 24px 28px;
+    border: 1px solid #eee;
+    border-radius: 12px;
+}
+.detail-card h4 {
+    font-size: 13px;
+    color: #888;
+    margin: 16px 0 4px;
+}
+
+/* ===========================
+   8. 역할 색상 - MODIFIED
+=========================== */
+.member-role {
+    font-size: 13px;
+    font-weight: 600;
+    margin: 2px 0 6px;
+}
+.member-role--frontend   { color: rgb(101, 165, 101); }
+.member-role--backend    { color: rgb(11, 161, 255); }
+.member-role--design     { color: rgb(153, 53, 86); }
+
+/* ===========================
+   9. 반응형
+=========================== */
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px 24px;
+}
+
+@media (max-width: 768px) {
+    .summary-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+    .summary-grid { grid-template-columns: 1fr; }
+
+    #lion-form {
+        grid-template-columns: 1fr;
+    }
+    .form-group,
+    .form-buttons {
+        grid-column: span 1;
+    }
+}
+
+/* ===========================
+   10. 4주차 신규 컨트롤 영역
+=========================== */
+/* 두 번째, 세 번째 줄 바(Bar)의 상단 여백 조절 */
+.async-bar, 
+.filter-bar {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid lightgray;
+}
+
+/* 비동기 상태 텍스트 디자인 */
+.status-text {
+    font-size: 13px;
+    font-weight: bold;
+    color: #6b7280;
+    margin-left: 8px;
+}
+
+/* 필터 및 검색창 그룹 디자인 */
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-right: 12px;
+}
+
+.filter-group label {
+    font-size: 12px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* 필터 선택창과 검색창 디자인 */
+.filter-select,
+.filter-input {
+    padding: 6px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 13px;
+    outline: none;
+}
+
+.filter-input::placeholder {
+    color: #aaa;
+}
+
+.filter-select:focus,
+.filter-input:focus {
+    border-color: #3b82f6;
+}
